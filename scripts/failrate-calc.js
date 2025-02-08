@@ -15,6 +15,17 @@ const statInputs = [dexInput, intInput, wisInput, chaInput];
 
 const schoolSkillInput = document.querySelector('#magicSchoolSkill');
 
+const schoolsThatShare = [
+  "fire", "water", "air", "earth", "conveyance",
+  "temporal", "nature", "hoffense", "hsupport", "ppower",
+  "attunement", "mintrusion", "oshadow", "ounlife"
+];
+
+const sharedSchoolInputs = {};
+schoolsThatShare.forEach(sch => {
+  sharedSchoolInputs[sch] = document.querySelector("#shared-" + sch);
+});
+
 const hpCalcLink = document.querySelector('#hp-calc-link');
 const mpCalcLink = document.querySelector('#mp-calc-link');
 
@@ -47,7 +58,8 @@ const profile = {
     "ppower": 0,
     "attunement": 0,
     "mintrusion": 0,
-    "astral": 0
+    "astral": 0,
+    "necromancy": 0
   }
 };
 
@@ -916,9 +928,13 @@ const statNameParser = {
   "chaScore": CHR
 };
 
+/*
 const patternSelector = {
   "magicSchoolSkill": /^([1-4]?\d(\.\d\d?\d?)?|50(.00?0?)?)$/
 };
+*/
+
+const skillRegex = /^([1-4]?\d(\.\d\d?\d?)?|50(.00?0?)?)$/;
 
 const getSuccessBonus = function(statValue) {
   return adjMagStat[statValue - STAT_TABLE_OFFSET] - 3;
@@ -960,7 +976,7 @@ const clearDisplay = function(container) {
 
 const updateOutput = function() {
   const sch = profile.currentSchool;
-  outputZone.setAttribute("displaying", sch);
+  document.body.setAttribute("displaying", sch);
   spellData.forEach(spell => {
     if (spell.schools.includes(sch)) {
       displayValueIn(recompute(profile, spell), individualOutputs[spell.name]);
@@ -1003,13 +1019,19 @@ allInputs.addEventListener('change', e => {
 allInputs.addEventListener('input', e => {
   const changedFieldID = e.target.id;
   if (e.target.type === 'text') {
-    const validInput = patternSelector[changedFieldID].test(e.target.value);
+    const inputString = e.target.value;
+    const validInput = skillRegex.test(inputString);
     if (validInput) {
       e.target.removeAttribute("invalid");
       if (changedFieldID === "magicSchoolSkill") {
-        profile.magicSchoolSkills[profile.currentSchool] = Number(e.target.value);
+        profile.magicSchoolSkills[profile.currentSchool] = Number(inputString);
+        if (schoolsThatShare.includes(profile.currentSchool)) {
+          sharedSchoolInputs[profile.currentSchool].value = inputString;
+        }
+      } else if (changedFieldID.startsWith("shared-")) {
+        profile.magicSchoolSkills[changedFieldID.slice(7)] = Number(inputString);
       } else {
-        profile[changedFieldID] = Number(e.target.value);
+        profile[changedFieldID] = Number(inputString);
       }
     } else {
       e.target.setAttribute("invalid", "");

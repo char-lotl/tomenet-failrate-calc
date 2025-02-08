@@ -71,103 +71,224 @@ h1 {
 	padding-right: 0.5em;
 }
 
+
+.shared-school-input {
+  display: none;
+}
+
+body[displaying="fire"] div.shared-school-input.water {
+  display: block;
+}
+
+body[displaying="fire"] div.shared-school-input.air {
+  display: block;
+}
+
+body[displaying="fire"] div.shared-school-input.earth {
+  display: block;
+}
+
+body[displaying="water"] div.shared-school-input.fire {
+  display: block;
+}
+
+body[displaying="water"] div.shared-school-input.air {
+  display: block;
+}
+
+body[displaying="water"] div.shared-school-input.earth {
+  display: block;
+}
+
+body[displaying="air"] div.shared-school-input.fire {
+  display: block;
+}
+
+body[displaying="air"] div.shared-school-input.water {
+  display: block;
+}
+
+body[displaying="air"] div.shared-school-input.earth {
+  display: block;
+}
+
+body[displaying="air"] div.shared-school-input.nature {
+  display: block;
+}
+
+body[displaying="earth"] div.shared-school-input.fire {
+  display: block;
+}
+
+body[displaying="earth"] div.shared-school-input.water {
+  display: block;
+}
+
+body[displaying="earth"] div.shared-school-input.air {
+  display: block;
+}
+
+body[displaying="nature"] div.shared-school-input.air {
+  display: block;
+}
+
+body[displaying="conveyance"] div.shared-school-input.temporal {
+  display: block;
+}
+
+body[displaying="conveyance"] div.shared-school-input.oshadow {
+  display: block;
+}
+
+body[displaying="temporal"] div.shared-school-input.conveyance {
+  display: block;
+}
+
+body[displaying="hoffense"] div.shared-school-input.hsupport {
+  display: block;
+}
+
+body[displaying="hoffense"] div.shared-school-input.oshadow {
+  display: block;
+}
+
+body[displaying="hsupport"] div.shared-school-input.hoffense {
+  display: block;
+}
+
+body[displaying="oshadow"] div.shared-school-input.conveyance {
+  display: block;
+}
+
+body[displaying="oshadow"] div.shared-school-input.unlife {
+  display: block;
+}
+
+body[displaying="oshadow"] div.shared-school-input.necromancy {
+  display: block;
+}
+
+body[displaying="ounlife"] div.shared-school-input.oshadow {
+  display: block;
+}
+
+body[displaying="ounlife"] div.shared-school-input.necromancy {
+  display: block;
+}
+
+body[displaying="ppower"] div.shared-school-input.attunement {
+  display: block;
+}
+
+body[displaying="attunement"] div.shared-school-input.ppower {
+  display: block;
+}
+
+body[displaying="attunement"] div.shared-school-input.mintrusion {
+  display: block;
+}
+
+body[displaying="mintrusion"] div.shared-school-input.attunement {
+  display: block;
+}
+
 #fail-rates-output tbody tr {
 	display: none;
 }
 
-#fail-rates-output[displaying="mana"] .mana {
+body[displaying="mana"] #fail-rates-output tr.mana {
 	display: table-row;
 }
 
-#fail-rates-output[displaying="fire"] .fire {
+body[displaying="fire"] #fail-rates-output tr.fire {
   display: table-row;
 }
 
-#fail-rates-output[displaying="water"] .water {
+body[displaying="water"] #fail-rates-output tr.water {
   display: table-row;
 }
 
-#fail-rates-output[displaying="air"] .air {
+body[displaying="air"] #fail-rates-output tr.air {
   display: table-row;
 }
 
-#fail-rates-output[displaying="earth"] .earth {
+body[displaying="earth"] #fail-rates-output tr.earth {
   display: table-row;
 }
 
-#fail-rates-output[displaying="conveyance"] .conveyance {
+body[displaying="conveyance"] #fail-rates-output tr.conveyance {
   display: table-row;
 }
 
-#fail-rates-output[displaying="divination"] .divination {
+body[displaying="divination"] #fail-rates-output tr.divination {
   display: table-row;
 }
 
-#fail-rates-output[displaying="temporal"] .temporal {
+body[displaying="temporal"] #fail-rates-output tr.temporal {
   display: table-row;
 }
 
-#fail-rates-output[displaying="nature"] .nature {
+body[displaying="nature"] #fail-rates-output tr.nature {
   display: table-row;
 }
 
-#fail-rates-output[displaying="udun"] .udun {
+body[displaying="udun"] #fail-rates-output tr.udun {
   display: table-row;
 }
 
-#fail-rates-output[displaying="hoffense"] .hoffense {
+body[displaying="hoffense"] #fail-rates-output tr.hoffense {
   display: table-row;
 }
 
-#fail-rates-output[displaying="hdefense"] .hdefense {
+body[displaying="hdefense"] #fail-rates-output tr.hdefense {
   display: table-row;
 }
 
-#fail-rates-output[displaying="hcuring"] .hcuring {
+body[displaying="hcuring"] #fail-rates-output tr.hcuring {
   display: table-row;
 }
 
-#fail-rates-output[displaying="hsupport"] .hsupport {
+body[displaying="hsupport"] #fail-rates-output tr.hsupport {
   display: table-row;
 }
 
-#fail-rates-output[displaying="druid-arcane"] .druid-arcane {
+body[displaying="druid-arcane"] #fail-rates-output tr.druid-arcane {
   display: table-row;
 }
 
-#fail-rates-output[displaying="druid-physical"] .druid-physical {
+body[displaying="druid-physical"] #fail-rates-output tr.druid-physical {
   display: table-row;
 }
 
-#fail-rates-output[displaying="ppower"] .ppower {
+body[displaying="ppower"] #fail-rates-output tr.ppower {
   display: table-row;
 }
 
-#fail-rates-output[displaying="attunement"] .attunement {
+body[displaying="attunement"] #fail-rates-output tr.attunement {
   display: table-row;
 }
 
-#fail-rates-output[displaying="mintrusion"] .mintrusion {
+body[displaying="mintrusion"] #fail-rates-output tr.mintrusion {
   display: table-row;
 }
 
-#fail-rates-output[displaying="astral"] .astral {
+body[displaying="astral"] #fail-rates-output tr.astral {
   display: table-row;
 }
 
-#fail-rates-output[displaying="oshadow"] .oshadow {
+body[displaying="oshadow"] #fail-rates-output tr.oshadow {
   display: table-row;
 }
 
-#fail-rates-output[displaying="ospirit"] .ospirit {
+body[displaying="ospirit"] #fail-rates-output tr.ospirit {
   display: table-row;
 }
 
-#fail-rates-output[displaying="ohereticism"] .ohereticism {
+body[displaying="ohereticism"] #fail-rates-output tr.ohereticism {
   display: table-row;
 }
 
-#fail-rates-output[displaying="ounlife"] .ounlife {
+body[displaying="ounlife"] #fail-rates-output tr.ounlife {
   display: table-row;
 }
 

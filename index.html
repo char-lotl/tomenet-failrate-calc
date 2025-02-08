@@ -7,7 +7,7 @@
   <script type="text/javascript" src="scripts/failrate-calc.js" defer></script>
   <title>TomeNET Spell Failrate Calculator</title>
 </head>
-<body>
+<body displaying="mana">
   <h1>TomeNET Spell Failrate Calculator</h1>
   <div id="all-inputs">
     <div id="inputs-row-one">
@@ -187,7 +187,7 @@
     </div>
     <div>
       <span id="school-skill-input">
-        <label for="magicSchoolSkill">and a skill of</label>
+        <label for="magicSchoolSkill">and</label>
         <input type="text" id="magicSchoolSkill" name="magicSchoolSkill" value="0">
         in
         <select name="spellSchool" id="spellSchool">
@@ -224,11 +224,101 @@
         </select>
       </span>
     </div>
+    <div class="shared-school-input fire">
+      <span>
+        <label for="shared-fire">and</label>
+        <input type="text" id="shared-fire" name="shared-fire" value="0"> in Fire
+      </span>
+    </div>
+    <div class="shared-school-input water">
+      <span>
+        <label for="shared-water">and</label>
+        <input type="text" id="shared-water" name="shared-water" value="0"> in Water
+      </span>
+    </div>
+    <div class="shared-school-input air">
+      <span>
+        <label for="shared-air">and</label>
+        <input type="text" id="shared-air" name="shared-air" value="0"> in Air
+      </span>
+    </div>
+    <div class="shared-school-input earth">
+      <span>
+        <label for="shared-earth">and</label>
+        <input type="text" id="shared-earth" name="shared-earth" value="0"> in Earth
+      </span>
+    </div>
+    <div class="shared-school-input nature">
+      <span>
+        <label for="shared-nature">and</label>
+        <input type="text" id="shared-nature" name="shared-nature" value="0"> in Nature
+      </span>
+    </div>
+    <div class="shared-school-input conveyance">
+      <span>
+        <label for="shared-conveyance">and</label>
+        <input type="text" id="shared-conveyance" name="shared-conveyance" value="0"> in Conveyance
+      </span>
+    </div>
+    <div class="shared-school-input temporal">
+      <span>
+        <label for="shared-temporal">and</label>
+        <input type="text" id="shared-temporal" name="shared-temporal" value="0"> in Temporal
+      </span>
+    </div>
+    <div class="shared-school-input hoffense">
+      <span>
+        <label for="shared-hoffense">and</label>
+        <input type="text" id="shared-hoffense" name="shared-hoffense" value="0"> in Holy Offense
+      </span>
+    </div>
+    <div class="shared-school-input hsupport">
+      <span>
+        <label for="shared-hsupport">and</label>
+        <input type="text" id="shared-hsupport" name="shared-hsupport" value="0"> in Holy Support
+      </span>
+    </div>
+    <div class="shared-school-input oshadow">
+      <span>
+        <label for="shared-oshadow">and</label>
+        <input type="text" id="shared-oshadow" name="shared-oshadow" value="0"> in Shadow
+      </span>
+    </div>
+    <div class="shared-school-input ounlife">
+      <span>
+        <label for="shared-ounlife">and</label>
+        <input type="text" id="shared-ounlife" name="shared-ounlife" value="0"> in Unlife
+      </span>
+    </div>
+    <div class="shared-school-input ppower">
+      <span>
+        <label for="shared-ppower">and</label>
+        <input type="text" id="shared-ppower" name="shared-ppower" value="0"> in Psycho-Power
+      </span>
+    </div>
+    <div class="shared-school-input attunement">
+      <span>
+        <label for="shared-attunement">and</label>
+        <input type="text" id="shared-attunement" name="shared-attunement" value="0"> in Attunement
+      </span>
+    </div>
+    <div class="shared-school-input mintrusion">
+      <span>
+        <label for="shared-mintrusion">and</label>
+        <input type="text" id="shared-mintrusion" name="shared-mintrusion" value="0"> in Mental Intrusion
+      </span>
+    </div>
+    <div class="shared-school-input necromancy">
+      <span>
+        <label for="shared-necromancy">and</label>
+        <input type="text" id="shared-necromancy" name="shared-necromancy" value="0"> in Necromancy
+      </span>
+    </div>
     <div>
       would have the following failrates:
     </div>
   </div>
-  <table id="fail-rates-output" class="output" displaying="mana">
+  <table id="fail-rates-output" class="output">
     <thead>
       <tr>
         <th>Spell</th>
