@@ -946,7 +946,6 @@ const getMinFail = function(statValue) {
 
 const recompute = function(p, spell) {
 
-  if (spell.fail == 101) return "0%";
   const isEasy = (spell.fail == 102);
   const effFail = isEasy ? 0 : spell.fail;
 
@@ -955,6 +954,7 @@ const recompute = function(p, spell) {
   const schoolSkills = spell.schools.map(sch => Math.floor(p.magicSchoolSkills[sch]));
   const combinedSkill = Math.floor(schoolSkills.reduce((acc, cur) => acc + cur, 0) / schoolSkills.length);
   if (combinedSkill < spell.level) return "-";
+  if (spell.fail == 101) return "0%";
 
   const baseFail = effFail - 3 * (combinedSkill - 2 * spell.level + 1) - getSuccessBonus(castingStat);
   const failAfterFloor = (baseFail > minFail) ? baseFail : minFail;
