@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <link href='./css/style.css' rel='stylesheet'>
+  <script type="text/javascript" src="scripts/failrate-calc.js" defer></script>
+  <title>TomeNET Spell Failrate Calculator</title>
+</head>
+<body>
+  <h1>TomeNET Spell Failrate Calculator</h1>
+  <div id="all-inputs">
+    <div id="inputs-row-one">
+      A character with
+    </div>
+    <div id="dex-score-input-row" hidden="">
+      a Dexterity score of
+      <select name="dexScore" id="dexScore">
+        <option value="three">3</option>
+        <option value="four">4</option>
+        <option value="five">5</option>
+        <option value="six">6</option>
+        <option value="seven">7</option>
+        <option value="eight">8</option>
+        <option value="nine">9</option>
+        <option value="ten" selected="selected">10</option>
+        <option value="eleven">11</option>
+        <option value="twelve">12</option>
+        <option value="thirteen">13</option>
+        <option value="fourteen">14</option>
+        <option value="fifteen">15</option>
+        <option value="sixteen">16</option>
+        <option value="seventeen">17</option>
+        <option value="eighteen">18</option>
+        <option value="eighteen-ten">18/10</option>
+        <option value="eighteen-twenty">18/20</option>
+        <option value="eighteen-thirty">18/30</option>
+        <option value="eighteen-forty">18/40</option>
+        <option value="eighteen-fifty">18/50</option>
+        <option value="eighteen-sixty">18/60</option>
+        <option value="eighteen-seventy">18/70</option>
+        <option value="eighteen-eighty">18/80</option>
+        <option value="eighteen-ninety">18/90</option>
+        <option value="eighteen-one-hundred">18/100</option>
+        <option value="eighteen-one-hundred-ten">18/110</option>
+        <option value="eighteen-one-hundred-twenty">18/120</option>
+        <option value="eighteen-one-hundred-thirty">18/130</option>
+        <option value="eighteen-one-hundred-forty">18/140</option>
+        <option value="eighteen-one-hundred-fifty">18/150</option>
+        <option value="eighteen-one-hundred-sixty">18/160</option>
+        <option value="eighteen-one-hundred-seventy">18/170</option>
+        <option value="eighteen-one-hundred-eighty">18/180</option>
+        <option value="eighteen-one-hundred-ninety">18/190</option>
+        <option value="eighteen-two-hundred">18/200</option>
+        <option value="eighteen-two-hundred-ten">18/210</option>
+        <option value="eighteen-two-hundred-twenty">18/220</option>
+      </select>
+    </div>
+    <div id="int-score-input-row">
+      an Intelligence score of
+      <select name="intScore" id="intScore">
+        <option value="three">3</option>
+        <option value="four">4</option>
+        <option value="five">5</option>
+        <option value="six">6</option>
+        <option value="seven">7</option>
+        <option value="eight">8</option>
+        <option value="nine">9</option>
+        <option value="ten" selected="selected">10</option>
+        <option value="eleven">11</option>
+        <option value="twelve">12</option>
+        <option value="thirteen">13</option>
+        <option value="fourteen">14</option>
+        <option value="fifteen">15</option>
+        <option value="sixteen">16</option>
+        <option value="seventeen">17</option>
+        <option value="eighteen">18</option>
+        <option value="eighteen-ten">18/10</option>
+        <option value="eighteen-twenty">18/20</option>
+        <option value="eighteen-thirty">18/30</option>
+        <option value="eighteen-forty">18/40</option>
+        <option value="eighteen-fifty">18/50</option>
+        <option value="eighteen-sixty">18/60</option>
+        <option value="eighteen-seventy">18/70</option>
+        <option value="eighteen-eighty">18/80</option>
+        <option value="eighteen-ninety">18/90</option>
+        <option value="eighteen-one-hundred">18/100</option>
+        <option value="eighteen-one-hundred-ten">18/110</option>
+        <option value="eighteen-one-hundred-twenty">18/120</option>
+        <option value="eighteen-one-hundred-thirty">18/130</option>
+        <option value="eighteen-one-hundred-forty">18/140</option>
+        <option value="eighteen-one-hundred-fifty">18/150</option>
+        <option value="eighteen-one-hundred-sixty">18/160</option>
+        <option value="eighteen-one-hundred-seventy">18/170</option>
+        <option value="eighteen-one-hundred-eighty">18/180</option>
+        <option value="eighteen-one-hundred-ninety">18/190</option>
+        <option value="eighteen-two-hundred">18/200</option>
+        <option value="eighteen-two-hundred-ten">18/210</option>
+        <option value="eighteen-two-hundred-twenty">18/220</option>
+      </select>
+    </div>
+    <div id="wis-score-input-row" hidden="">
+      a Wisdom score of
+      <select name="wisScore" id="wisScore">
+        <option value="three">3</option>
+        <option value="four">4</option>
+        <option value="five">5</option>
+        <option value="six">6</option>
+        <option value="seven">7</option>
+        <option value="eight">8</option>
+        <option value="nine">9</option>
+        <option value="ten" selected="selected">10</option>
+        <option value="eleven">11</option>
+        <option value="twelve">12</option>
+        <option value="thirteen">13</option>
+        <option value="fourteen">14</option>
+        <option value="fifteen">15</option>
+        <option value="sixteen">16</option>
+        <option value="seventeen">17</option>
+        <option value="eighteen">18</option>
+        <option value="eighteen-ten">18/10</option>
+        <option value="eighteen-twenty">18/20</option>
+        <option value="eighteen-thirty">18/30</option>
+        <option value="eighteen-forty">18/40</option>
+        <option value="eighteen-fifty">18/50</option>
+        <option value="eighteen-sixty">18/60</option>
+        <option value="eighteen-seventy">18/70</option>
+        <option value="eighteen-eighty">18/80</option>
+        <option value="eighteen-ninety">18/90</option>
+        <option value="eighteen-one-hundred">18/100</option>
+        <option value="eighteen-one-hundred-ten">18/110</option>
+        <option value="eighteen-one-hundred-twenty">18/120</option>
+        <option value="eighteen-one-hundred-thirty">18/130</option>
+        <option value="eighteen-one-hundred-forty">18/140</option>
+        <option value="eighteen-one-hundred-fifty">18/150</option>
+        <option value="eighteen-one-hundred-sixty">18/160</option>
+        <option value="eighteen-one-hundred-seventy">18/170</option>
+        <option value="eighteen-one-hundred-eighty">18/180</option>
+        <option value="eighteen-one-hundred-ninety">18/190</option>
+        <option value="eighteen-two-hundred">18/200</option>
+        <option value="eighteen-two-hundred-ten">18/210</option>
+        <option value="eighteen-two-hundred-twenty">18/220</option>
+      </select>
+    </div>
+    <div id="cha-score-input-row" hidden="">
+      a Charisma score of
+      <select name="chaScore" id="chaScore">
+        <option value="three">3</option>
+        <option value="four">4</option>
+        <option value="five">5</option>
+        <option value="six">6</option>
+        <option value="seven">7</option>
+        <option value="eight">8</option>
+        <option value="nine">9</option>
+        <option value="ten" selected="selected">10</option>
+        <option value="eleven">11</option>
+        <option value="twelve">12</option>
+        <option value="thirteen">13</option>
+        <option value="fourteen">14</option>
+        <option value="fifteen">15</option>
+        <option value="sixteen">16</option>
+        <option value="seventeen">17</option>
+        <option value="eighteen">18</option>
+        <option value="eighteen-ten">18/10</option>
+        <option value="eighteen-twenty">18/20</option>
+        <option value="eighteen-thirty">18/30</option>
+        <option value="eighteen-forty">18/40</option>
+        <option value="eighteen-fifty">18/50</option>
+        <option value="eighteen-sixty">18/60</option>
+        <option value="eighteen-seventy">18/70</option>
+        <option value="eighteen-eighty">18/80</option>
+        <option value="eighteen-ninety">18/90</option>
+        <option value="eighteen-one-hundred">18/100</option>
+        <option value="eighteen-one-hundred-ten">18/110</option>
+        <option value="eighteen-one-hundred-twenty">18/120</option>
+        <option value="eighteen-one-hundred-thirty">18/130</option>
+        <option value="eighteen-one-hundred-forty">18/140</option>
+        <option value="eighteen-one-hundred-fifty">18/150</option>
+        <option value="eighteen-one-hundred-sixty">18/160</option>
+        <option value="eighteen-one-hundred-seventy">18/170</option>
+        <option value="eighteen-one-hundred-eighty">18/180</option>
+        <option value="eighteen-one-hundred-ninety">18/190</option>
+        <option value="eighteen-two-hundred">18/200</option>
+        <option value="eighteen-two-hundred-ten">18/210</option>
+        <option value="eighteen-two-hundred-twenty">18/220</option>
+      </select>
+    </div>
+    <div>
+      <span id="school-skill-input">
+        <label for="magicSchoolSkill">and a skill of</label>
+        <input type="text" id="magicSchoolSkill" name="magicSchoolSkill" value="0">
+        in
+        <select name="spellSchool" id="spellSchool">
+          <option value="istari-magic" disabled>Wizardry</option>
+          <option value="mana">Mana</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="air">Air</option>
+          <option value="earth">Earth</option>
+          <option value="nature">Nature</option>
+          <option value="conveyance">Conveyance</option>
+          <option value="divination">Divination</option>
+          <option value="temporal">Temporal</option>
+          <option value="udun">Udun</option>
+          <option value="prayer-school" disabled>Prayers</option>
+          <option value="hoffense">Holy Offense</option>
+          <option value="hdefense">Holy Defense</option>
+          <option value="hcuring">Holy Curing</option>
+          <option value="hsupport">Holy Support</option>
+          <option value="occult-school" disabled>Occultism</option>
+          <option value="oshadow">Shadow</option>
+          <option value="ospirit">Spirit</option>
+          <option value="ohereticism">Hereticism</option>
+          <option value="ounlife">Unlife</option>
+          <option value="druid-magic" disabled>Druidism</option>
+          <option value="druid-arcane">Arcane Lore</option>
+          <option value="druid-physical">Physical Lore</option>
+          <option value="mindcraft" disabled>Mindcraft</option>
+          <option value="ppower">Psycho-Power</option>
+          <option value="attunement">Attunement</option>
+          <option value="mintrusion">Mental Intrusion</option>
+          <option value="maia-magic" disabled>Astral magic</option>
+          <option value="astral">Astral Knowledge</option>
+        </select>
+      </span>
+    </div>
+    <div>
+      would have the following failrates:
+    </div>
+  </div>
+  <table id="fail-rates-output" class="output" displaying="mana">
+    <thead>
+      <tr>
+        <th>Spell</th>
+        <th>Failrate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="mana"><td>Manathrust I</td><td id="manathrust-i-failrate">-</td></tr>
+      <tr class="mana"><td>Manathrust II</td><td id="manathrust-ii-failrate">-</td></tr>
+      <tr class="mana"><td>Manathrust III</td><td id="manathrust-iii-failrate">-</td></tr>
+      <tr class="mana"><td>Recharge I</td><td id="recharge-i-failrate">-</td></tr>
+      <tr class="mana"><td>Recharge II</td><td id="recharge-ii-failrate">-</td></tr>
+      <tr class="mana"><td>Recharge III</td><td id="recharge-iii-failrate">-</td></tr>
+      <tr class="mana"><td>Disperse Magic</td><td id="disperse-magic-failrate">-</td></tr>
+      <tr class="mana"><td>Disruption Shield</td><td id="disruption-shield-failrate">-</td></tr>
+      <tr class="fire"><td>Globe of Light I</td><td id="globe-of-light-i-failrate">-</td></tr>
+      <tr class="fire"><td>Globe of Light II</td><td id="globe-of-light-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Fire Bolt I</td><td id="fire-bolt-i-failrate">-</td></tr>
+      <tr class="fire"><td>Fire Bolt II</td><td id="fire-bolt-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Fire Bolt III</td><td id="fire-bolt-iii-failrate">-</td></tr>
+      <tr class="fire water"><td>Elemental Shield I</td><td id="elemental-shield-i-failrate">-</td></tr>
+      <tr class="fire water air earth"><td>Elemental Shield II</td><td id="elemental-shield-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Fiery Shield I</td><td id="fiery-shield-i-failrate">-</td></tr>
+      <tr class="fire"><td>Fiery Shield II</td><td id="fiery-shield-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Firewall I</td><td id="firewall-i-failrate">-</td></tr>
+      <tr class="fire"><td>Firewall II</td><td id="firewall-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Fire Ball I</td><td id="fire-ball-i-failrate">-</td></tr>
+      <tr class="fire"><td>Fire Ball II</td><td id="fire-ball-ii-failrate">-</td></tr>
+      <tr class="fire"><td>Fireflash I</td><td id="fireflash-i-failrate">-</td></tr>
+      <tr class="fire"><td>Fireflash II</td><td id="fireflash-ii-failrate">-</td></tr>
+      <tr class="water"><td>Vapor I</td><td id="vapor-i-failrate">-</td></tr>
+      <tr class="water"><td>Vapor II</td><td id="vapor-ii-failrate">-</td></tr>
+      <tr class="water"><td>Vapor III</td><td id="vapor-iii-failrate">-</td></tr>
+      <tr class="water"><td>Frost Bolt I</td><td id="frost-bolt-i-failrate">-</td></tr>
+      <tr class="water"><td>Frost Bolt II</td><td id="frost-bolt-ii-failrate">-</td></tr>
+      <tr class="water"><td>Frost Bolt III</td><td id="frost-bolt-iii-failrate">-</td></tr>
+      <tr class="water"><td>Ent's Potion</td><td id="ents-potion-failrate">-</td></tr>
+      <tr class="water"><td>Water Bolt I</td><td id="water-bolt-i-failrate">-</td></tr>
+      <tr class="water"><td>Water Bolt II</td><td id="water-bolt-ii-failrate">-</td></tr>
+      <tr class="water"><td>Water Bolt III</td><td id="water-bolt-iii-failrate">-</td></tr>
+      <tr class="water"><td>Tidal Wave I</td><td id="tidal-wave-i-failrate">-</td></tr>
+      <tr class="water"><td>Tidal Wave II</td><td id="tidal-wave-ii-failrate">-</td></tr>
+      <tr class="water"><td>Frost Barrier I</td><td id="frost-barrier-i-failrate">-</td></tr>
+      <tr class="water"><td>Frost Barrier II</td><td id="frost-barrier-ii-failrate">-</td></tr>
+      <tr class="water"><td>Frost Ball I</td><td id="frost-ball-i-failrate">-</td></tr>
+      <tr class="water"><td>Frost Ball II</td><td id="frost-ball-ii-failrate">-</td></tr>
+      <tr class="air"><td>Lightning Bolt I</td><td id="lightning-bolt-i-failrate">-</td></tr>
+      <tr class="air"><td>Lightning Bolt II</td><td id="lightning-bolt-ii-failrate">-</td></tr>
+      <tr class="air"><td>Lightning Bolt III</td><td id="lightning-bolt-iii-failrate">-</td></tr>
+      <tr class="air"><td>Noxious Cloud I</td><td id="noxious-cloud-i-failrate">-</td></tr>
+      <tr class="air"><td>Noxious Cloud II</td><td id="noxious-cloud-ii-failrate">-</td></tr>
+      <tr class="air"><td>Noxious Cloud III</td><td id="noxious-cloud-iii-failrate">-</td></tr>
+      <tr class="air nature"><td>Thunderstorm</td><td id="thunderstorm-failrate">-</td></tr>
+      <tr class="air"><td>Wings of Winds</td><td id="wings-of-winds-failrate">-</td></tr>
+      <tr class="air"><td>Invisibility</td><td id="invisibility-failrate">-</td></tr>
+      <tr class="air"><td>Mirage Mirror</td><td id="mirage-mirror-failrate">-</td></tr>
+      <tr class="earth"><td>Acid Bolt I</td><td id="acid-bolt-i-failrate">-</td></tr>
+      <tr class="earth"><td>Acid Bolt II</td><td id="acid-bolt-ii-failrate">-</td></tr>
+      <tr class="earth"><td>Acid Bolt III</td><td id="acid-bolt-iii-failrate">-</td></tr>
+      <tr class="earth"><td>Dig</td><td id="dig-failrate">-</td></tr>
+      <tr class="earth"><td>Strike I</td><td id="strike-i-failrate">-</td></tr>
+      <tr class="earth"><td>Strike II</td><td id="strike-ii-failrate">-</td></tr>
+      <tr class="earth"><td>Stone Prison</td><td id="stone-prison-failrate">-</td></tr>
+      <tr class="earth"><td>Shake</td><td id="shake-failrate">-</td></tr>
+      <tr class="nature"><td>Healing I</td><td id="healing-i-failrate">-</td></tr>
+      <tr class="nature"><td>Healing II</td><td id="healing-ii-failrate">-</td></tr>
+      <tr class="nature"><td>Healing III</td><td id="healing-iii-failrate">-</td></tr>
+      <tr class="nature"><td>Grasping Vines I</td><td id="grasping-vines-i-failrate">-</td></tr>
+      <tr class="nature"><td>Grasping Vines II</td><td id="grasping-vines-ii-failrate">-</td></tr>
+      <tr class="nature"><td>Vermin Control</td><td id="vermin-control-failrate">-</td></tr>
+      <tr class="nature"><td>Recovery I</td><td id="recovery-i-failrate">-</td></tr>
+      <tr class="nature"><td>Recovery II</td><td id="recovery-ii-failrate">-</td></tr>
+      <tr class="nature"><td>Regeneration</td><td id="regeneration-failrate">-</td></tr>
+      <tr class="nature"><td>Remove Curses I</td><td id="remove-curses-i-failrate">-</td></tr>
+      <tr class="nature"><td>Remove Curses II</td><td id="remove-curses-ii-failrate">-</td></tr>
+      <tr class="nature"><td>Grow Trees</td><td id="grow-trees-failrate">-</td></tr>
+      <tr class="nature"><td>Poison Blood</td><td id="poison-blood-failrate">-</td></tr>
+      <tr class="conveyance"><td>Phase Door</td><td id="phase-door-failrate">-</td></tr>
+      <tr class="conveyance"><td>Disarm</td><td id="disarm-failrate">-</td></tr>
+      <tr class="conveyance"><td>Teleportation</td><td id="teleportation-failrate">-</td></tr>
+      <tr class="conveyance"><td>Teleport Away I</td><td id="teleport-away-i-failrate">-</td></tr>
+      <tr class="conveyance"><td>Teleport Away II</td><td id="teleport-away-ii-failrate">-</td></tr>
+      <tr class="conveyance"><td>Recall</td><td id="recall-failrate">-</td></tr>
+      <tr class="conveyance"><td>Probability Travel</td><td id="probability-travel-failrate">-</td></tr>
+      <tr class="conveyance"><td>Telekinesis I</td><td id="telekinesis-i-failrate">-</td></tr>
+      <tr class="temporal conveyance"><td>Mass Stasis</td><td id="mass-stasis-failrate">-</td></tr>
+      <tr class="divination"><td>Detect Monsters</td><td id="detect-monsters-failrate">-</td></tr>
+      <tr class="divination"><td>Sense Hidden I</td><td id="sense-hidden-i-failrate">-</td></tr>
+      <tr class="divination"><td>Sense Hidden II</td><td id="sense-hidden-ii-failrate">-</td></tr>
+      <tr class="divination"><td>Reveal Ways</td><td id="reveal-ways-failrate">-</td></tr>
+      <tr class="divination"><td>Identify I</td><td id="identify-i-failrate">-</td></tr>
+      <tr class="divination"><td>Identify II</td><td id="identify-ii-failrate">-</td></tr>
+      <tr class="divination"><td>Identify III</td><td id="identify-iii-failrate">-</td></tr>
+      <tr class="divination"><td>Vision I</td><td id="vision-i-failrate">-</td></tr>
+      <tr class="divination"><td>Vision II</td><td id="vision-ii-failrate">-</td></tr>
+      <tr class="divination"><td>Greater Identify</td><td id="greater-identify-failrate">-</td></tr>
+      <tr class="divination"><td>Sense Minds</td><td id="sense-minds-failrate">-</td></tr>
+      <tr class="temporal"><td>Magelock I</td><td id="magelock-i-failrate">-</td></tr>
+      <tr class="temporal"><td>Magelock II</td><td id="magelock-ii-failrate">-</td></tr>
+      <tr class="temporal"><td>Slow Monster I</td><td id="slow-monster-i-failrate">-</td></tr>
+      <tr class="temporal"><td>Slow Monster II</td><td id="slow-monster-ii-failrate">-</td></tr>
+      <tr class="temporal"><td>Essence of Speed</td><td id="essence-of-speed-failrate">-</td></tr>
+      <tr class="udun"><td>Confusion I</td><td id="confusion-i-failrate">-</td></tr>
+      <tr class="udun"><td>Confusion II</td><td id="confusion-ii-failrate">-</td></tr>
+      <tr class="udun"><td>Stun I</td><td id="stun-i-failrate">-</td></tr>
+      <tr class="udun"><td>Stun II</td><td id="stun-ii-failrate">-</td></tr>
+      <tr class="udun"><td>Hellfire I</td><td id="hellfire-i-failrate">-</td></tr>
+      <tr class="udun"><td>Hellfire II</td><td id="hellfire-ii-failrate">-</td></tr>
+      <tr class="udun"><td>Genocide</td><td id="genocide-failrate">-</td></tr>
+      <tr class="udun"><td>Disenchantment Ray</td><td id="disenchantment-ray-failrate">-</td></tr>
+      <tr class="udun"><td>Obliteration</td><td id="obliteration-failrate">-</td></tr>
+      <tr class="udun"><td>Wraithform</td><td id="wraithform-failrate">-</td></tr>
+      <tr class="udun"><td>Stop Wraithform</td><td id="stop-wraithform-failrate">-</td></tr>
+      <tr class="hoffense"><td>Curse I</td><td id="curse-i-failrate">-</td></tr>
+      <tr class="hoffense"><td>Curse II</td><td id="curse-ii-failrate">-</td></tr>
+      <tr class="hoffense"><td>Curse III</td><td id="curse-iii-failrate">-</td></tr>
+      <tr class="hoffense hsupport"><td>Call Light I</td><td id="call-light-i-failrate">-</td></tr>
+      <tr class="hoffense hsupport"><td>Call Light II</td><td id="call-light-ii-failrate">-</td></tr>
+      <tr class="hoffense"><td>Redemption I</td><td id="redemption-i-failrate">-</td></tr>
+      <tr class="hoffense"><td>Redemption II</td><td id="redemption-ii-failrate">-</td></tr>
+      <tr class="hoffense"><td>Redemption III</td><td id="redemption-iii-failrate">-</td></tr>
+      <tr class="hoffense"><td>Ray of Light</td><td id="ray-of-light-failrate">-</td></tr>
+      <tr class="hoffense"><td>Exorcism I</td><td id="exorcism-i-failrate">-</td></tr>
+      <tr class="hoffense"><td>Exorcism II</td><td id="exorcism-ii-failrate">-</td></tr>
+      <tr class="hoffense"><td>Orb of Draining I</td><td id="orb-of-draining-i-failrate">-</td></tr>
+      <tr class="hoffense"><td>Orb of Draining II</td><td id="orb-of-draining-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Chaos Bolt</td><td id="chaos-bolt-failrate">-</td></tr>
+      <tr class="oshadow hoffense"><td>Chaos Bolt</td><td id="chaos-bolt-failrate">-</td></tr>
+      <tr class="hoffense oshadow"><td>Doomed Grounds</td><td id="doomed-grounds-failrate">-</td></tr>
+      <tr class="hoffense"><td>Earthquake</td><td id="earthquake-failrate">-</td></tr>
+      <tr class="hdefense"><td>Blessing I</td><td id="blessing-i-failrate">-</td></tr>
+      <tr class="hdefense"><td>Blessing II</td><td id="blessing-ii-failrate">-</td></tr>
+      <tr class="hdefense"><td>Blessing III</td><td id="blessing-iii-failrate">-</td></tr>
+      <tr class="hdefense"><td>Dispel Magic</td><td id="dispel-magic-failrate">-</td></tr>
+      <tr class="hdefense"><td>Protection from Evil</td><td id="protection-from-evil-failrate">-</td></tr>
+      <tr class="hdefense"><td>Holy Resistance I</td><td id="holy-resistance-i-failrate">-</td></tr>
+      <tr class="hdefense"><td>Holy Resistance II</td><td id="holy-resistance-ii-failrate">-</td></tr>
+      <tr class="hdefense"><td>Holy Resistance III</td><td id="holy-resistance-iii-failrate">-</td></tr>
+      <tr class="hdefense"><td>Glyph of Warding</td><td id="glyph-of-warding-failrate">-</td></tr>
+      <tr class="hdefense"><td>Martyrdom</td><td id="martyrdom-failrate">-</td></tr>
+      <tr class="hcuring"><td>Curing I</td><td id="curing-i-failrate">-</td></tr>
+      <tr class="hcuring"><td>Curing II</td><td id="curing-ii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Curing III</td><td id="curing-iii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Cure Wounds I</td><td id="cure-wounds-i-failrate">-</td></tr>
+      <tr class="hcuring"><td>Cure Wounds II</td><td id="cure-wounds-ii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Heal I</td><td id="heal-i-failrate">-</td></tr>
+      <tr class="hcuring"><td>Heal II</td><td id="heal-ii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Heal III</td><td id="heal-iii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Break Curses I</td><td id="break-curses-i-failrate">-</td></tr>
+      <tr class="hcuring"><td>Break Curses II</td><td id="break-curses-ii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Cleansing Light I</td><td id="cleansing-light-i-failrate">-</td></tr>
+      <tr class="hcuring"><td>Cleansing Light II</td><td id="cleansing-light-ii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Cleansing Light III</td><td id="cleansing-light-iii-failrate">-</td></tr>
+      <tr class="hcuring"><td>Faithful Focus</td><td id="faithful-focus-failrate">-</td></tr>
+      <tr class="hcuring"><td>Soul Curing</td><td id="soul-curing-failrate">-</td></tr>
+      <tr class="hcuring"><td>Resurrection</td><td id="resurrection-failrate">-</td></tr>
+      <tr class="hcuring"><td>Restoration</td><td id="restoration-failrate">-</td></tr>
+      <tr class="hsupport"><td>Remove Fear</td><td id="remove-fear-failrate">-</td></tr>
+      <tr class="hsupport"><td>Detect Evil</td><td id="detect-evil-failrate">-</td></tr>
+      <tr class="hsupport"><td>Sanctuary I</td><td id="sanctuary-i-failrate">-</td></tr>
+      <tr class="hsupport"><td>Sanctuary II</td><td id="sanctuary-ii-failrate">-</td></tr>
+      <tr class="hsupport"><td>Satisfy Hunger</td><td id="satisfy-hunger-failrate">-</td></tr>
+      <tr class="hsupport"><td>Sense Surroundings I</td><td id="sense-surroundings-i-failrate">-</td></tr>
+      <tr class="hsupport"><td>Sense Surroundings II</td><td id="sense-surroundings-ii-failrate">-</td></tr>
+      <tr class="hsupport"><td>Zeal I</td><td id="zeal-i-failrate">-</td></tr>
+      <tr class="hsupport"><td>Zeal II</td><td id="zeal-ii-failrate">-</td></tr>
+      <tr class="hsupport"><td>Zeal III</td><td id="zeal-iii-failrate">-</td></tr>
+      <tr class="hsupport"><td>Sense Monsters</td><td id="sense-monsters-failrate">-</td></tr>
+      <tr class="oshadow"><td>Cause Fear I</td><td id="cause-fear-i-failrate">-</td></tr>
+      <tr class="oshadow"><td>Cause Fear II</td><td id="cause-fear-ii-failrate">-</td></tr>
+      <tr class="oshadow"><td>Blindness</td><td id="blindness-failrate">-</td></tr>
+      <tr class="oshadow"><td>Veil of Night I</td><td id="veil-of-night-i-failrate">-</td></tr>
+      <tr class="oshadow"><td>Veil of Night II</td><td id="veil-of-night-ii-failrate">-</td></tr>
+      <tr class="oshadow"><td>Shadow Bolt I</td><td id="shadow-bolt-i-failrate">-</td></tr>
+      <tr class="oshadow"><td>Shadow Bolt II</td><td id="shadow-bolt-ii-failrate">-</td></tr>
+      <tr class="oshadow"><td>Shadow Bolt III</td><td id="shadow-bolt-iii-failrate">-</td></tr>
+      <tr class="oshadow"><td>Detect Invisible</td><td id="detect-invisible-failrate">-</td></tr>
+      <tr class="oshadow"><td>Retreat</td><td id="retreat-failrate">-</td></tr>
+      <tr class="oshadow"><td>Aspect of Peril</td><td id="aspect-of-peril-failrate">-</td></tr>
+      <tr class="oshadow"><td>Darkness</td><td id="darkness-failrate">-</td></tr>
+      <tr class="oshadow"><td>Shadow Stream</td><td id="shadow-stream-failrate">-</td></tr>
+      <tr class="oshadow conveyance"><td>Shadow Gate</td><td id="shadow-gate-failrate">-</td></tr>
+      <tr class="oshadow"><td>Shadow Shroud</td><td id="shadow-shroud-failrate">-</td></tr>
+      <tr class="oshadow"><td>Dispersion</td><td id="dispersion-failrate">-</td></tr>
+      <tr class="oshadow"><td>Stop Dispersion</td><td id="stop-dispersion-failrate">-</td></tr>
+      <tr class="oshadow"><td>Drain Life</td><td id="drain-life-failrate">-</td></tr>
+      <tr class="oshadow"><td>Darkness Storm</td><td id="darkness-storm-failrate">-</td></tr>
+      <tr class="ospirit"><td>Cause Wounds I</td><td id="cause-wounds-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Cause Wounds II</td><td id="cause-wounds-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Cause Wounds III</td><td id="cause-wounds-iii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Tame Fear</td><td id="tame-fear-failrate">-</td></tr>
+      <tr class="ospirit"><td>Starlight I</td><td id="starlight-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Starlight II</td><td id="starlight-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Meditation</td><td id="meditation-failrate">-</td></tr>
+      <tr class="ospirit"><td>Trance</td><td id="trance-failrate">-</td></tr>
+      <tr class="ospirit"><td>Lightning I</td><td id="lightning-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Lightning II</td><td id="lightning-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Lightning III</td><td id="lightning-iii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Spear of Light I</td><td id="spear-of-light-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Spear of Light II</td><td id="spear-of-light-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Spear of Light III</td><td id="spear-of-light-iii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Lift Curses I</td><td id="lift-curses-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Lift Curses II</td><td id="lift-curses-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Possess I</td><td id="possess-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Possess II</td><td id="possess-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Possess III</td><td id="possess-iii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Stop Possess</td><td id="stop-possess-failrate">-</td></tr>
+      <tr class="ospirit"><td>Ethereal Eye</td><td id="ethereal-eye-failrate">-</td></tr>
+      <tr class="ospirit"><td>Guardian Spirit I</td><td id="guardian-spirit-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Guardian Spirit II</td><td id="guardian-spirit-ii-failrate">-</td></tr>
+      <tr class="ospirit"><td>Purification Rites I</td><td id="purification-rites-i-failrate">-</td></tr>
+      <tr class="ospirit"><td>Purification Rites II</td><td id="purification-rites-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Terror I</td><td id="terror-i-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Terror II</td><td id="terror-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Ignore Fear</td><td id="ignore-fear-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Fire Bolt I</td><td id="fire-bolt-i-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Fire Bolt II</td><td id="fire-bolt-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Fire Bolt III</td><td id="fire-bolt-iii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Wrathflame</td><td id="wrathflame-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Flame Wave I</td><td id="flame-wave-i-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Flame Wave II</td><td id="flame-wave-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Demonic Strength</td><td id="demonic-strength-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Boundless Rage I</td><td id="boundless-rage-i-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Boundless Rage II</td><td id="boundless-rage-ii-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Wicked Oath</td><td id="wicked-oath-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Levitation</td><td id="levitation-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Robes of Havoc</td><td id="robes-of-havoc-failrate">-</td></tr>
+      <tr class="ohereticism"><td>Blood Sacrifice</td><td id="blood-sacrifice-failrate">-</td></tr>
+      <tr class="ounlife"><td>Fatigue I</td><td id="fatigue-i-failrate">-</td></tr>
+      <tr class="ounlife"><td>Fatigue II</td><td id="fatigue-ii-failrate">-</td></tr>
+      <tr class="ounlife"><td>Detect Lifeforce</td><td id="detect-lifeforce-failrate">-</td></tr>
+      <tr class="ounlife"><td>Tainted Grounds</td><td id="tainted-grounds-failrate">-</td></tr>
+      <tr class="ounlife"><td>Mists of Decay I</td><td id="mists-of-decay-i-failrate">-</td></tr>
+      <tr class="ounlife"><td>Mists of Decay II</td><td id="mists-of-decay-ii-failrate">-</td></tr>
+      <tr class="ounlife"><td>Nether Sap</td><td id="nether-sap-failrate">-</td></tr>
+      <tr class="ounlife"><td>Subjugation</td><td id="subjugation-failrate">-</td></tr>
+      <tr class="ounlife"><td>Nether Bolt</td><td id="nether-bolt-failrate">-</td></tr>
+      <tr class="ounlife"><td>Permeation</td><td id="permeation-failrate">-</td></tr>
+      <tr class="ounlife"><td>Siphon Life</td><td id="siphon-life-failrate">-</td></tr>
+      <tr class="ounlife"><td>Touch of Hunger</td><td id="touch-of-hunger-failrate">-</td></tr>
+      <tr class="ounlife oshadow"><td>Wraithstep</td><td id="wraithstep-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Toxic Moisture I</td><td id="toxic-moisture-i-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Toxic Moisture II</td><td id="toxic-moisture-ii-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Toxic Moisture III</td><td id="toxic-moisture-iii-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Nature's Call</td><td id="natures-call-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Ancient Lore</td><td id="ancient-lore-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Garden of the Gods</td><td id="garden-of-the-gods-failrate">-</td></tr>
+      <tr class="druid-arcane"><td>Call of the Forest</td><td id="call-of-the-forest-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Focus I</td><td id="focus-i-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Focus II</td><td id="focus-ii-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Herbal Tea</td><td id="herbal-tea-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Quickfeet</td><td id="quickfeet-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Extra Growth I</td><td id="extra-growth-i-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Extra Growth II</td><td id="extra-growth-ii-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Forest's Embrace I</td><td id="forests-embrace-i-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Forest's Embrace II</td><td id="forests-embrace-ii-failrate">-</td></tr>
+      <tr class="druid-physical"><td>Forest's Embrace III</td><td id="forests-embrace-iii-failrate">-</td></tr>
+      <tr class="ppower"><td>Psychic Hammer</td><td id="psychic-hammer-failrate">-</td></tr>
+      <tr class="ppower"><td>Psychokinesis</td><td id="psychokinesis-failrate">-</td></tr>
+      <tr class="ppower"><td>Autokinesis I</td><td id="autokinesis-i-failrate">-</td></tr>
+      <tr class="ppower"><td>Autokinesis II</td><td id="autokinesis-ii-failrate">-</td></tr>
+      <tr class="ppower"><td>Autokinesis III</td><td id="autokinesis-iii-failrate">-</td></tr>
+      <tr class="ppower"><td>Feedback</td><td id="feedback-failrate">-</td></tr>
+      <tr class="ppower"><td>Pyrokinesis I</td><td id="pyrokinesis-i-failrate">-</td></tr>
+      <tr class="ppower"><td>Pyrokinesis II</td><td id="pyrokinesis-ii-failrate">-</td></tr>
+      <tr class="ppower"><td>Cryokinesis I</td><td id="cryokinesis-i-failrate">-</td></tr>
+      <tr class="ppower"><td>Cryokinesis II</td><td id="cryokinesis-ii-failrate">-</td></tr>
+      <tr class="ppower"><td>Psychic Warp</td><td id="psychic-warp-failrate">-</td></tr>
+      <tr class="attunement ppower"><td>Telekinesis II</td><td id="telekinesis-ii-failrate">-</td></tr>
+      <tr class="ppower"><td>Kinetic Shield</td><td id="kinetic-shield-failrate">-</td></tr>
+      <tr class="attunement"><td>Clear Mind</td><td id="clear-mind-failrate">-</td></tr>
+      <tr class="attunement"><td>Willpower</td><td id="willpower-failrate">-</td></tr>
+      <tr class="attunement"><td>Self-Reflection</td><td id="self-reflection-failrate">-</td></tr>
+      <tr class="attunement mintrusion"><td>Recognition</td><td id="recognition-failrate">-</td></tr>
+      <tr class="attunement"><td>Accelerate Nerves</td><td id="accelerate-nerves-failrate">-</td></tr>
+      <tr class="attunement"><td>Telepathy</td><td id="telepathy-failrate">-</td></tr>
+      <tr class="attunement"><td>Stabilize Thoughts</td><td id="stabilize-thoughts-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psionic Blast I</td><td id="psionic-blast-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psionic Blast II</td><td id="psionic-blast-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psionic Blast III</td><td id="psionic-blast-iii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Scare I</td><td id="scare-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Scare II</td><td id="scare-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Confuse I</td><td id="confuse-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Confuse II</td><td id="confuse-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Hypnosis I</td><td id="hypnosis-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Hypnosis II</td><td id="hypnosis-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Apathy I</td><td id="apathy-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Apathy II</td><td id="apathy-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psychic Suppression</td><td id="psychic-suppression-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psi Storm I</td><td id="psi-storm-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Psi Storm II</td><td id="psi-storm-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Remote Vision</td><td id="remote-vision-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Charm I</td><td id="charm-i-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Charm II</td><td id="charm-ii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Charm III</td><td id="charm-iii-failrate">-</td></tr>
+      <tr class="mintrusion"><td>Stop Charm</td><td id="stop-charm-failrate">-</td></tr>
+      <tr class="astral"><td>Power Bolt I</td><td id="power-bolt-i-failrate">-</td></tr>
+      <tr class="astral"><td>Power Bolt II</td><td id="power-bolt-ii-failrate">-</td></tr>
+      <tr class="astral"><td>Power Bolt III</td><td id="power-bolt-iii-failrate">-</td></tr>
+      <tr class="astral"><td>Power Ray I</td><td id="power-ray-i-failrate">-</td></tr>
+      <tr class="astral"><td>Power Ray II</td><td id="power-ray-ii-failrate">-</td></tr>
+      <tr class="astral"><td>Power Ray III</td><td id="power-ray-iii-failrate">-</td></tr>
+      <tr class="astral"><td>Power Blast I</td><td id="power-blast-i-failrate">-</td></tr>
+      <tr class="astral"><td>Power Blast II</td><td id="power-blast-ii-failrate">-</td></tr>
+      <tr class="astral"><td>Power Blast III</td><td id="power-blast-iii-failrate">-</td></tr>
+      <tr class="astral"><td>Relocation</td><td id="relocation-failrate">-</td></tr>
+      <tr class="astral"><td>Vengeance</td><td id="vengeance-failrate">-</td></tr>
+      <tr class="astral"><td>Empowerment</td><td id="empowerment-failrate">-</td></tr>
+      <tr class="astral"><td>The Silent Force</td><td id="the-silent-force-failrate">-</td></tr>
+      <tr class="astral"><td>Sphere of Destruction</td><td id="sphere-of-destruction-failrate">-</td></tr>
+      <tr class="astral"><td>Gateway</td><td id="gateway-failrate">-</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id=calc-link-sidebar>
+    <a href="../tomenet-hp-calc/index.html" id="hp-calc-link">
+      <div>
+        HP Calculator
+      </div>
+    </a>
+    <a href="../tomenet-mp-calc/index.html" id="mp-calc-link">
+      <div>
+        MP Calculator
+      </div>
+    </a>
+  </div> 
+  <footer>
+    Data retrieved from GitHub on 6 Feb 2025.
+  </footer>
+</body>
+</html>
+
+
+

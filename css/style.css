@@ -1,0 +1,183 @@
+* {
+	font-family: 'Trebuchet MS';
+	cursor: default;
+	/*text-align: center;*/
+}
+
+#all-inputs {
+	margin-top: 3em;
+}
+
+#all-inputs > div {
+  text-align: center;
+  margin: 1em;
+}
+
+.output {
+	/*font-size: 1.4em;*/
+	margin: auto;
+}
+
+input {
+	width: 3em;
+	cursor: auto;
+}
+
+input[invalid] {
+	background-color: #FFCCCC;
+}
+
+#div[hidden] {
+	display: none;
+}
+
+#calc-link-sidebar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	user-select: none;
+}
+
+#calc-link-sidebar div {
+	padding: 1em;
+	border-radius: 0.5em;
+	margin: 0.5em;
+}
+
+#calc-link-sidebar a {
+	text-decoration: none;
+	color: #000;
+}
+
+#hp-calc-link div {
+	background-color: #FCC;
+}
+
+#mp-calc-link div {
+	background-color: #CCF;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.output {
+	font-size: 1.4em;
+}
+
+#fail-rates-output td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+#fail-rates-output tbody tr {
+	display: none;
+}
+
+#fail-rates-output[displaying="mana"] .mana {
+	display: table-row;
+}
+
+#fail-rates-output[displaying="fire"] .fire {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="water"] .water {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="air"] .air {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="earth"] .earth {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="conveyance"] .conveyance {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="divination"] .divination {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="temporal"] .temporal {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="nature"] .nature {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="udun"] .udun {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="hoffense"] .hoffense {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="hdefense"] .hdefense {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="hcuring"] .hcuring {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="hsupport"] .hsupport {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="druid-arcane"] .druid-arcane {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="druid-physical"] .druid-physical {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="ppower"] .ppower {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="attunement"] .attunement {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="mintrusion"] .mintrusion {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="astral"] .astral {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="oshadow"] .oshadow {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="ospirit"] .ospirit {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="ohereticism"] .ohereticism {
+  display: table-row;
+}
+
+#fail-rates-output[displaying="ounlife"] .ounlife {
+  display: table-row;
+}
+
+footer {
+	font-size: 0.6em;
+	position: fixed;
+	bottom: 0px;
+}
+
+
+
+
+
