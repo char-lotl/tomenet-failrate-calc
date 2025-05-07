@@ -1,11 +1,8 @@
+// Assigning names to DOM objects corresponding to key page elements.
 const allInputs = document.querySelector('#all-inputs');
 
 const outputZone = document.querySelector('#fail-rates-output');
 const individualOutputs = {};
-
-// const manapointsOutput = document.querySelector('#mana-points-output');
-// const mimicManapointsOutput = document.querySelector('#mimic-mana-points-output');
-// const mimicryOutputSection = document.querySelector('#mimicry-output-section');
 
 const dexInput = document.querySelector('#dex-score-input-row');
 const intInput = document.querySelector('#int-score-input-row');
@@ -15,12 +12,15 @@ const statInputs = [dexInput, intInput, wisInput, chaInput];
 
 const schoolSkillInput = document.querySelector('#magicSchoolSkill');
 
+// List of the schools of magic that include shared school spells --
+// spells that depend on more than one skill.
 const schoolsThatShare = [
   "fire", "water", "air", "earth", "conveyance",
   "temporal", "nature", "hoffense", "hsupport", "ppower",
   "attunement", "mintrusion", "oshadow", "ounlife"
 ];
 
+// Wiring up some more inputs.
 const sharedSchoolInputs = {};
 schoolsThatShare.forEach(sch => {
   sharedSchoolInputs[sch] = document.querySelector("#shared-" + sch);
@@ -31,6 +31,7 @@ const mpCalcLink = document.querySelector('#mp-calc-link');
 
 const [DEX, INT, WIS, CHR] = [0, 1, 2, 3];
 
+// Default character profile values.
 const profile = {
   currentSchool: "mana",
   abilityScores: [10, 10, 10, 10], //dex, int, wis, cha
@@ -63,6 +64,7 @@ const profile = {
   }
 };
 
+// Relates character stat values with spell failrate bonuses.
 const adjMagStat = [
   0, 0, 0, 1, 1, 1, 2, 2, 3, 3,
   4, 4, 5, 6, 7, 8, 9, 10, 11, 12,
@@ -70,6 +72,7 @@ const adjMagStat = [
   39, 42, 45, 48, 51, 54, 57, 60
 ];
 
+// Relates character stat values with spell failrate floors.
 const adjMagFail = [
   99, 99, 99, 99, 99, 50, 30, 20, 15, 12,
   11, 10, 9, 8, 7, 6, 6, 5, 5, 5,
@@ -81,6 +84,8 @@ const adjMagFail = [
 // So there's an offset of 3 from the stat value to the index.
 const STAT_TABLE_OFFSET = 3;
 
+// All data for spell schools: spells belonging to them, relevant stats,
+// and any other schools they share a spell with.
 const schoolsData = {
   "mana": {
     schoolID: 0,
@@ -569,6 +574,13 @@ const schoolsData = {
   }
 };
 
+// All data for individual spells: name (for internal use), level,
+// failrate modifier, stat determining failrate, and the schools they're
+// a part of.
+// Note: internal spell names are mostly consistent with in-game spell names,
+// with the exception of the occult school of Hereticism's "Fire Bolt" spells,
+// which share their name with the Fire school of wizardry's "Fire Bolt"
+// spells. As such, the former have been renamed internally to "o-fire-bolt".
 const spellData = [
   {name: "manathrust-i", level: 1, fail: 10, stat: INT, schools: ["mana"]},
   {name: "manathrust-ii", level: 20, fail: -20, stat: INT, schools: ["mana"]},
@@ -876,6 +888,7 @@ const spellData = [
   {name: "gateway", level: 40, fail: 102, stat: WIS, schools: ["astral"]}
 ];
 
+// Assigning a name to each output field for the calculator.
 spellData.forEach((spell, index) => {
   individualOutputs[spell.name] = outputZone.lastElementChild.children[index].lastElementChild;
 });
@@ -921,6 +934,7 @@ const statParser = {
   "eighteen-two-hundred-twenty": 40
 };
 
+// Pairs HTML select elements for stats with their stat constant.
 const statNameParser = {
   "dexScore": DEX,
   "intScore": INT,
@@ -928,12 +942,7 @@ const statNameParser = {
   "chaScore": CHR
 };
 
-/*
-const patternSelector = {
-  "magicSchoolSkill": /^([1-4]?\d(\.\d\d?\d?)?|50(.00?0?)?)$/
-};
-*/
-
+// Pattern for skill level input validation.
 const skillRegex = /^([1-4]?\d(\.\d\d?\d?)?|50(.00?0?)?)$/;
 
 const getSuccessBonus = function(statValue) {
@@ -944,6 +953,8 @@ const getMinFail = function(statValue) {
   return adjMagFail[statValue - STAT_TABLE_OFFSET];
 }
 
+// Compute the failrate of a single spell, from player character data
+// and spell data.
 const recompute = function(p, spell) {
 
   const isEasy = (spell.fail == 102);
@@ -976,7 +987,10 @@ const clearDisplay = function(container) {
 
 const updateOutput = function() {
   const sch = profile.currentSchool;
+  // The page uses CSS to pick which outputs are displayed, based on
+  // the selected school of magic.
   document.body.setAttribute("displaying", sch);
+  // Update each output field for the current school of magic.
   spellData.forEach(spell => {
     if (spell.schools.includes(sch)) {
       displayValueIn(recompute(profile, spell), individualOutputs[spell.name]);
@@ -986,6 +1000,7 @@ const updateOutput = function() {
 
 updateOutput();
 
+// Wire up all the inputs.
 allInputs.addEventListener('change', e => {
   const changedFieldID = e.target.id;
   const changedFieldType = e.target.type;
