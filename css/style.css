@@ -57,6 +57,10 @@ input[invalid] {
 	background-color: #CCF;
 }
 
+#mimicry-search-link div {
+  background-color: #E98;
+}
+
 h1 {
 	text-align: center;
 	margin-top: 2em;
